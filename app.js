@@ -25,9 +25,10 @@ function Socket(username, id) {
     this.id = id;
 }
 
-server.listen(3000, function() {
-    console.log("port 3000 open for business.");
+server.listen(port, function() {
+    console.log("port open for business.");
 });
+port = 3000 || process.env.PORT;
 
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
