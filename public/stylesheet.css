@@ -1,0 +1,264 @@
+
+body{
+  background-color: rgb(255, 255, 255);
+  color:rgb(79, 79, 79);
+  width: 100%;
+  height:100vh;
+  overflow-x: hidden;
+  margin:0 0 0 0;
+}
+
+
+input{
+  color:black;
+}
+
+#messageArea{
+  width:100%;
+  height:100vh;
+  display:none;
+
+}
+#sideWrapper{
+  height:100vh;
+  width:25%;
+  position:fixed;
+  display:inline-block;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  background-color:rgb(40, 40, 40)
+}
+#side{
+  position:absolute;
+  width:110%;
+  padding-right:10%;
+  height:82vh;
+  display:inline-block;
+  overflow-x:hidden;
+  overflow-y:auto;
+  background-color:rgb(40, 40, 40)
+}
+
+.chatWrapper{
+  position:fixed;
+  right:0px;
+  height:100vh;
+  max-height:100vh;
+  display:inline-block;
+  width:75%;
+  overflow-y:hidden;
+  overflow-x:hidden;
+}
+
+#chat{
+  padding-left:2vw;
+  padding-right:2vw;
+  width:102%;
+  margin-top:2vw;
+  max-height:74%;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+#messageForm{
+position:fixed;
+margin:0;
+bottom:2vw;
+padding-left:2vw;
+width:98%;
+}
+#messageLabel{
+  display:inline;
+  font-weight:200;
+  font-size:1.2vw;
+}
+#targetLabel{
+  display:inline;
+  font-weight:bold;
+  font-size:1.2vw;
+}
+
+textarea#message{
+  resize:none;
+  width:68%;
+  border-color:rgb(185, 185, 185);
+}
+
+.msg{
+  display:block;
+  background-color:white;
+  border:none;
+  padding:.2vw;
+  margin: -.5vw 0 0 0;
+  font-size:1.5vw;
+  font-weight: 200;
+}
+.time{
+  color:rgb(196, 196, 196);
+  font-size:1.1vw;
+  margin:2vw 0 0 0;
+}
+/*these are added in based on if the message/socket is yours or not. */
+
+.userIdentify{
+  text-transform: uppercase;
+  font-weight:500;
+  margin-right:.3vw;
+  color:rgb(116, 116, 116);
+  font-size:1.2vw;
+}
+#myMessage{
+  width:85%;
+  text-align:right;
+}
+#notMyMessage{
+  width:85%;
+  text-align:left;
+}
+#mySocket{
+  color:rgb(3, 161, 0);
+  text-align:right;
+
+}
+/*left hand side userlist*/
+
+
+
+#usersList{
+  width:80%;
+position:relative;
+top:2vw;
+left:2vw;
+}
+
+.userListli{
+  color:rgb(191, 191, 191);
+  border:none;
+  padding:.3vw;
+  text-transform: uppercase;
+}
+.userListli:hover{
+  cursor:pointer;
+}
+
+/*change my name in the left hand side*/
+#mySocketLi{
+  color:rgb(87, 193, 85);
+  border:none;
+  padding:.4vw;
+  text-transform: uppercase;
+}
+
+
+/*roomsList*/
+#roomsList{
+  width:80%;
+  position:relative;
+  left:2vw;
+}
+.roomListli{
+  color:rgb(195, 195, 195);
+  border:none;
+  padding: .15vw .4vw;
+  text-transform: uppercase;
+}
+.roomListli:hover{
+  cursor:pointer;
+}
+.target{
+  font-weight:bold;
+  color:rgb(223, 154, 83);
+}
+#newRoomForm{
+position:fixed;
+width:19%;
+bottom:2.1vw;
+}
+#roomBtn{
+  margin-top:.5vw;
+}
+#roomInput{
+  width:100%;
+}
+#newRoomLabel{
+font-weight:200;
+color:rgb(195, 192, 192);
+font-size:1.5vw;
+}
+#userFormArea{
+  width:100%;
+  position:absolute;
+}
+#usersRoomsTitle{
+  font-size:2.3vw;
+  font-weight:200;
+  display:inline;
+  color:rgb(219, 216, 216);
+}
+.list-group-item{
+  background:none;
+  background-color:none;
+  font-size:1.3vw;
+}
+
+#userForm{
+  width:90vw;
+  height:20vw;
+position:relative;
+right:0;
+left:0;
+margin:auto;
+top:20vw;
+}
+
+input#username{
+  width:50%;
+  position:absolute;
+  margin:auto;
+  right:0;
+  left:0;
+}
+
+#userBtn{
+  position:absolute;
+  left:22.5vw;
+  margin-top:1vw;
+}
+#userLabel{
+  position:absolute;
+  left:22.5vw;
+}
+
+.btn-primary{
+  width:10vw;
+  background-color:rgb(79, 205, 34);
+  border:none;
+}
+.btn-primary:hover{
+  background-color:rgb(155, 235, 156);
+border:none;
+}
+
+.flash{
+    animation-name: flash;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+@keyframes flash {
+    from {color: rgb(0, 167, 12);}
+    to {color: white;}
+}
+
+.typingIndicator{
+  display:inline;
+  visibility:hidden;
+  color:rgb(152, 152, 152);
+  font-weight:200;
+  display:inline;
+  font-size:1.2vw;
+}
+#typingIndicator{
+  display:inline;
+}

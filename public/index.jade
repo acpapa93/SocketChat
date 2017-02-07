@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title Socket.IO chat
+    script(src='https://cdn.socket.io/socket.io-1.4.5.js')
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script(src="/script.js")
+    link(href="/stylesheet.css", rel="stylesheet", )
+  body
+    #userFormArea
+      form#userForm
+        .form-group
+          label#userLabel Enter Username
+          br
+          input#username.form.control
+          br
+          input#userBtn.btn.btn-primary(type='submit', value='login')
+    #messageArea
+      #sideWrapper  
+        #side
+          #usersList
+            h3#usersRoomsTitle Online Users
+            ul#users.list-group
+          #roomsList
+              h3#usersRoomsTitle Current rooms
+              ul#rooms.list-group 
+              form#newRoomForm
+                .form-group 
+                label#newRoomLabel Enter room name
+                br
+                input#roomInput.form.control
+                br
+                input#roomBtn.btn.btn-primary(type="submit", value="Create room")
+      .chatWrapper
+        #chat.chat
+        form#messageForm
+            .form-group
+            label#messageLabel Send a message to 
+            #targetLabel All 
+            .typingIndicator
+            br
+            textarea#message.form.control
+            br
+            input.btn.btn-primary(type='submit', value='Send Message')
+            
+  
