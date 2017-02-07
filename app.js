@@ -14,6 +14,7 @@ var socketIds = [];
 var messageHistory = [
     []
 ];
+portENV=process.env.PORT;
 
 var privateMessageGroups = [];
 var privateMessageHistory = [];
@@ -25,10 +26,10 @@ function Socket(username, id) {
     this.id = id;
 }
 
-server.listen(port, function() {
+server.listen(portENV || 3000, function() {
     console.log("port open for business.");
 });
-port = 3000 || process.env.PORT;
+
 
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
