@@ -23,7 +23,7 @@ $(function(){
 //login
   $userForm.submit(function(e){
     e.preventDefault();
-    if ($username.val()!==""){
+    if ($username.val()!=="" && user.indexOf($username.val())===-1){
     socket.username=$username.val();
     socket.emit("new user", $username.val(), function (data){
       if (data){
@@ -34,6 +34,8 @@ $(function(){
     //join and get history for "All"
     target="All";
     socket.emit("joined room", {sender:socket.username, room:target});
+  } else{
+    alert("Wow. Username already taken, please choose another.");
   }
     $username.val("");
   });
@@ -280,6 +282,7 @@ $("#newRoomForm").keypress(function(event) {
 });
 var target, previous;
 $("#newRoomForm").submit(function(e){
+  if (roomHtml.indexOf($roomInput.val())===-1){
     e.preventDefault();
     typing = false;
     socket.emit("stopped typing in room", {sender:socket.username, room:target});
@@ -291,10 +294,14 @@ $("#newRoomForm").submit(function(e){
     socket.emit("joined room", {sender:socket.username, target:target});
     $("ul#rooms>li").last().addClass("target");
     $("#targetLabel").replaceWith("<div id='targetLabel'>"+target+"</div>");
+  } else {
+    alert("Room already taken, please choose another room");
+    $("#roomInput").val("");
+  }
   });
-
+var roomHtml;
   socket.on("get rooms", function (data){
-    var roomHtml="";
+    roomHtml="";
     for (var i=0;i<data.length;i++){
       if (data.length===1){
         target="All";
@@ -357,12 +364,23 @@ $("#newRoomForm").submit(function(e){
     targetUser=data.targetUser;
     pmGroups=data.pmGroups;
   });
-
 $("#menu").click(function(e){
-  if (count===1){
-  $("#side").css("visibility", "visible");
-} else if (count===0){
-  $("#side").css("visibility", "hidden");
+  //hide it
+  if ($("#sideWrapper").hasClass("visible")){
+    $("#sideWrapper").removeClass("visible");
+    $("#sideWrapper").css({
+      left:"0vw",
+    });
+    $("#sideWrapper").css("visibility", "hidden");
+    $("#menu").css({left: "1.5vw"});
+//show it
+} else {
+  $("#sideWrapper").addClass("visible");
+  $("#sideWrapper").css({
+    left:"0vw",
+  });
+  $("#sideWrapper").css("visibility", "visible");
+  $("#menu").css({left: "20vw"});
 }
 
 });

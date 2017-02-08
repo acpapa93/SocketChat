@@ -7,7 +7,15 @@ body{
   overflow-x: hidden;
   margin:0 0 0 0;
 }
-
+img#menu{
+  width:4vw;
+  height:4vw;
+  position:absolute;
+  cursor: pointer;
+  visibility:hidden;
+  top:1.5vw;
+  left:1.5vw;
+}
 
 input{
   color:black;
@@ -229,7 +237,7 @@ input#username{
 }
 
 .btn-primary{
-  width:10vw;
+  min-width:10vw;
   background-color:rgb(79, 205, 34);
   border:none;
 }
@@ -261,4 +269,96 @@ border:none;
 }
 #typingIndicator{
   display:inline;
+}
+
+@media only screen
+  and (max-device-width: 800px){
+    #sideWrapper{
+  visibility:hidden;
+  z-index:3;
+  }
+  img#menu{
+  visibility:visible;
+  }
+  .chatWrapper{
+    width:100%;
+  }
+  textarea#message{
+    width:98%;
+  }
+  #chat{
+    margin-top:5.5vw;
+  }
+/*button fix*/
+  .btn-primary{
+    width:auto;
+  }
+
+}
+
+@media only screen and (max-width:800px){
+  #sideWrapper{
+    visibility:hidden;
+    z-index:3;
+    min-width:125px;
+    left:-25vw;
+  }
+  #roomInput{
+    min-width:100px;
+  }
+
+  #newRoomLabel{
+      font-size:12px;
+  }
+  img#menu{
+    z-index:5;
+    visibility:visible;
+  }
+  .chatWrapper{
+    width:100%;
+  }
+
+  textarea#message{
+    width:98%;
+  }
+  #chat{
+    margin-top:5.5vw;
+  }
+/*font size fixes*/
+#messageLabel{
+  font-size:12px;
+
+}
+#targetLabel{
+  font-size:12px;
+}
+.typingIndicator{
+  font-size:12px;
+}
+#mySocket{
+  font-size:12px;
+}
+.userIdentify{
+  font-size:12px;
+}
+.time{
+  font-size:11px;
+}
+.msg{
+  font-size:14px;
+}
+
+#usersList{
+  width:65%;
+}
+#usersRoomsTitle{
+  font-size:16px;
+}
+.list-group-item{
+  font-size:12px
+}
+  /*button fix*/
+    .btn-primary{
+      width:auto;
+    }
 }

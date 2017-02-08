@@ -42,6 +42,7 @@ app.get("/", function(req, res) {
 io.sockets.on("connection", function(socket) {
     connections.push(socket);
     updateRooms();
+    updateUsernames();
 //sign in
 socket.on("new user", function(data, callback) {
     callback(true);
